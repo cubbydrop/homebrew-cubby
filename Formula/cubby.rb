@@ -11,7 +11,7 @@ class Cubby < Formula
   on_macos do
     if Hardware::CPU.intel?
       url "https://releases.cubbydrop.com/cubby/v0.1.0/cubby_0.1.0_darwin_amd64.tar.gz"
-      sha256 "6695b74c0697f5904aa16569d901231bf4bb5b5101942536a881024323fcd9e8"
+      sha256 "dc71b9fdf35e145bd8996c1a7f13c3c6edcc542f293b4a40b2f0bfd3a8752795"
 
       define_method(:install) do
         bin.install "cubby"
@@ -19,7 +19,7 @@ class Cubby < Formula
     end
     if Hardware::CPU.arm?
       url "https://releases.cubbydrop.com/cubby/v0.1.0/cubby_0.1.0_darwin_arm64.tar.gz"
-      sha256 "de96dfc9ca5bca654a87ce54081ed539cf4564c2a43342aae0f46cc2a499d09c"
+      sha256 "bf29bdbaaa42b69e9a2eede78badb018fa0227040fb74555a1f59ab6fa9d2d09"
 
       define_method(:install) do
         bin.install "cubby"
@@ -30,14 +30,14 @@ class Cubby < Formula
   on_linux do
     if Hardware::CPU.intel? && Hardware::CPU.is_64_bit?
       url "https://releases.cubbydrop.com/cubby/v0.1.0/cubby_0.1.0_linux_amd64.tar.gz"
-      sha256 "5cda55d86b36e229a4705706e5890867fd2435be5ff6c645447645805053e6e3"
+      sha256 "589457c80f80575a61842d7f60003e2f5e7480da6c397e50e5d07e4b5eb3049e"
       define_method(:install) do
         bin.install "cubby"
       end
     end
     if Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
       url "https://releases.cubbydrop.com/cubby/v0.1.0/cubby_0.1.0_linux_arm64.tar.gz"
-      sha256 "83d5187a99daf607b20e6ee65530d8f8df0b0368e02829e4bb07915403e95f72"
+      sha256 "51fdedd7d159a1d0abbd5ede840ff8fecf747bbdbbf1fc7c8e05ad9549eecaca"
       define_method(:install) do
         bin.install "cubby"
       end
