@@ -1,4 +1,4 @@
-# 🔒 Cubby — CLI for CubbyDrop
+# Cubby — CLI for CubbyDrop
 
 Zero-knowledge encrypted file sharing from your terminal.
 
@@ -11,7 +11,7 @@ Zero-knowledge encrypted file sharing from your terminal.
    ╚═════╝ ╚═════╝ ╚═════╝ ╚═════╝   ╚═╝
 ```
 
-**Encrypt files before they leave your machine.** Upload, download, and manage encrypted files on [CubbyDrop](https://cubbydrop.com) — all from the terminal. AES-256-GCM encryption happens locally; the server never sees your data.
+**Encrypt files before they leave your machine.** Send, download, and manage encrypted files on [CubbyDrop](https://cubbydrop.com) — all from the terminal. AES-256-GCM encryption happens locally; the server never sees your data.
 
 ## Install
 
@@ -51,7 +51,7 @@ Run `cubby` to open the interactive dashboard:
 cubby
 ```
 
-Navigate with arrow keys, select with Enter. Upload files, browse your uploads, check account status — all from the terminal.
+Navigate with arrow keys, select with Enter. Send files, browse your uploads, check account status — all from the terminal.
 
 ### Quick commands
 
@@ -59,8 +59,11 @@ Navigate with arrow keys, select with Enter. Upload files, browse your uploads, 
 # Log in to your CubbyDrop account
 cubby login
 
-# Upload a file — get an encrypted share link
-cubby upload secret-report.pdf
+# Send a file — get an encrypted share link
+cubby send secret-report.pdf
+
+# Send and email the link
+cubby send report.pdf --email team@company.com
 
 # Download and decrypt a shared file
 cubby download "https://cubbydrop.com/d/abc123#encryptionKey"
@@ -72,14 +75,25 @@ cubby list
 cubby status
 ```
 
-### Upload options
+### Send options
 
 ```bash
-cubby upload doc.pdf --password mysecret        # Password-protected
-cubby upload doc.pdf --expiry 72                # Expires in 72 hours
-cubby upload doc.pdf --max-downloads 5          # Limit downloads
-cubby upload doc.pdf --delete-on-download       # Self-destruct after download
+cubby send doc.pdf --password mysecret        # Password-protected
+cubby send doc.pdf --expiry 7d                # Expires in 7 days
+cubby send doc.pdf --max-downloads 5          # Limit downloads
+cubby send doc.pdf --delete-on-download       # Self-destruct after download
+cubby send doc.pdf --email user@example.com   # Email the share link
 ```
+
+### Claude Code integration
+
+Install the `/cubby` slash command for [Claude Code](https://claude.ai/claude-code):
+
+```bash
+cubby setup claude
+```
+
+Then type `/cubby` in any Claude Code session to send encrypted files from your project.
 
 ## How it works
 
@@ -93,6 +107,7 @@ The server never sees your plaintext. That's zero-knowledge encryption.
 ## Links
 
 - [CubbyDrop](https://cubbydrop.com) — Web app
-- [Integrations](https://cubbydrop.com/integrations) — Slack, Discord, Microsoft Teams
+- [CLI docs](https://cubbydrop.com/cli) — Full command reference
+- [Integrations](https://cubbydrop.com/integrations) — Slack, Discord, Microsoft Teams, Claude Code
 - [Privacy Policy](https://cubbydrop.com/legal/privacy)
 - [Terms of Service](https://cubbydrop.com/legal/terms)
